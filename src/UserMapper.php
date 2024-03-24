@@ -44,29 +44,22 @@ class UserMapper
         $data = $this->validator->clearData($data);
         $errors = [];
         if (empty($data['user_name'])) {
-//            throw new UserException('Поле "имя" не может быть пустым');
             $errors[] = 'Поле "имя" не может быть пустым';
         } elseif (is_string($data['user_name']) && mb_strlen($data['user_name']) > 30) {
-//            throw new UserException('Превышено допустимое количество сиволов (30)');
             $errors[] = 'Превышено допустимое количество сиволов (30)';
         }  elseif (!$this->validator->validateName($data['user_name'])) {
-//            throw new UserException('В поле "имя" допустимы только буквы кирилицы и латиницы');
             $errors[] = 'В поле "имя" допустимы только буквы кирилицы и латиницы';
         }
 
         if (empty($data['phone'])) {
-//            throw new UserException('Поле "телефон" не может быть пустым');
             $errors[] = 'Поле "телефон" не может быть пустым';
         } elseif (!$this->validator->validatePhone($data['phone'])) {
-//            throw new UserException('Неверный формат номера телефона');
             $errors[] = 'Неверный формат номера телефона';
         }
 
         if (empty($data['user_email'])) {
-//            throw new UserException('Поле "email" не может быть пустым');
             $errors[] = 'Поле "email" не может быть пустым';
         } elseif (!$this->validator->validateEmail($data['user_email'])) {
-//            throw new UserException('Неверный формат адреса электронной почты');
             $errors[] = 'Неверный формат адреса электронной почты';
         }
 
