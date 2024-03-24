@@ -10,9 +10,11 @@
 </div>
 <div class="main-wrapper container">
     {% if message is not null %}
-    <div class="message">
-        {{ message }}
-    </div>
+        {% for mess in message %}
+            <div class="message">
+                {{ mess }}
+            </div>
+        {% endfor %}
     {% endif %}
     <form class="popup-form" id="thanks_form" action="/form" method="POST" novalidate>
         <div class="popup-form-row">

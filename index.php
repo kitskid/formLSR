@@ -1,5 +1,6 @@
 <?php
 
+use LSM\Database;
 use LSM\Session;
 use LSM\UserException;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -21,7 +22,7 @@ $dsn = $config['dsn'];
 $username = $config['username'];
 $password = $config['password'];
 
-$database = new \LSM\Database($dsn, $username, $password);
+$database = new Database($dsn, $username, $password);
 $userMapper = new UserMapper($database);
 
 $app = AppFactory::create();
@@ -76,7 +77,7 @@ $app->post('/form', function (Request $request, Response $response, $args) use (
     try {
         $userMapper->addUser($params);
     } catch (UserException $exception) {
-        $session->setData('message', $exception->getMessage());
+        $session->setData('message', $exception->getMessages());
         $session->setData('form', $params);
 
         $body = $view->render('form.twig', [
