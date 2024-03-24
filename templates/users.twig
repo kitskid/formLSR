@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+{% block body %}
+    <div class="main-wrapper container">
+        <h1>Список пользователей</h1>
+            {% for user in users %}
+            <div class="title">
+                <div>{{ user.name }}</div>
+                <div>{{ user.email }}</div>
+                <div>{{ user.phone }}</div>
+            </div>
+            {% endfor %}
+    </div>
+{% endblock %}

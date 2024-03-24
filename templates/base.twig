@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FormLSR</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div class="header-main-container">
+                <div class="header-main container for-desktop">
+                    <div class="header-column header-column-1">
+                        <ul class="main-navigation">
+                            <li><a href="/">ГЛАВНАЯ</a></li>
+                            <li><a href="/form">ФОРМА</a></li>
+                            <li><a href="/users">БАЗА</a></li>
+                        </ul>
+                    </div>
+                    <div class="header-column header-column-2"></div>
+                    <div class="header-column header-column-3"></div>
+                    <div class="header-column header-column-4"></div>
+                </div>
+            </div>
+        </header>
+        <main>
+        {% block body %}{% endblock %}
+        </main>
+        <footer>
+            <div class="footer-container container">
+                <div class="footer-footer">
+                    <div class="site-info">
+                        Антон Власов<br>Сделано по заказу компании ЛСР
+                    </div>
+                </div>
+            </div>
+        </footer>
+<!--        <script src="scripts/imask.js"></script>-->
+<!--        <script src="scripts/script.js"></script>-->
+    </body>
+</html>

@@ -1,0 +1,53 @@
+{% extends 'base.twig' %}
+
+{% block body %}
+<div class="lang container">
+    {% if lang == 'ru' %}
+        <a href="/lang">Русский язык</a>
+    {% else %}
+        <a href="/lang">Английский язык</a>
+    {% endif %}
+</div>
+<div class="main-wrapper container">
+    {% if message is not null %}
+    <div class="message">
+        {{ message }}
+    </div>
+    {% endif %}
+    <form class="popup-form" id="thanks_form" action="/form" method="POST" novalidate>
+        <div class="popup-form-row">
+            <input type="text"
+                   id="thanks_name"
+                   name="user_name"
+                   class="popup-input-text"
+                   value="{{ form ? form.user_name }}"
+                   placeholder="{% if lang == 'ru' %} Ваше имя {% else %} Name {% endif %}"
+            >
+            <input type="tel"
+                   id="thanks_phone"
+                   name="phone"
+                   class="popup-input-text imask"
+                   value="{{ form ? form.phone }}"
+                   placeholder="{% if lang == 'ru' %} Телефон {% else %} Phone {% endif %}"
+            >
+            <input type="email"
+                   id="thanks_email"
+                   name="user_email"
+                   class="popup-input-text"
+                   value="{{ form ? form.user_email }}"
+                   placeholder="{% if lang == 'ru' %} Почта {% else %} Email {% endif %}"
+            >
+        </div>
+        <p class="text-help mb-30">
+            {% if lang == 'ru' %}
+                Нажимая на кнопку, я даю согласие на обработку персональных данных и соглашаюсь с политикой конфеденциальности
+            {% else %}
+                By clicking the button, I consent to the processing of personal data and agree to the privacy policy
+            {% endif %}
+        </p>
+        <div class="text-center w-100">
+            <button type="submit" class="main-banner-item-link">{% if lang == 'ru' %} ОТПРАВИТЬ {% else %} SEND {% endif %}</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
